@@ -1,0 +1,6 @@
+rg_name = "myResourceGroup"
+location = "West Europe"
+vnet_name = "myVNet"
+subnet_name = "frontednetSubnet"
+pip_name = "myPublicIP"
+nic_name = "myNIC"
