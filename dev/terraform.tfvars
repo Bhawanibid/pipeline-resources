@@ -1,6 +1,7 @@
-rg_name = "myResourceGroup"
+rg_name = "myrg1"
 location = "West Europe"
 vnet_name = "myVNet"
 subnet_name = "frontednetSubnet"
 pip_name = "myPublicIP"
 nic_name = "myNIC"
+vm_name = "myVM"

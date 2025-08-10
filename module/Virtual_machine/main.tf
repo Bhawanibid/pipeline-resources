@@ -1,3 +1,15 @@
+data "azurerm_public_ip" "public-ip" {
+  name                = var.pip_name
+  resource_group_name = var.rg_name
+}
+
+data "azurerm_subnet" "front-subnet" {
+  name                 = var.subnet_name
+  virtual_network_name = var.vnet_name
+  resource_group_name  = var.rg_name
+}
+
+
 resource "azurerm_network_interface" "nic" {
   name                = var.nic_name
   location            = var.location
@@ -5,21 +17,10 @@ resource "azurerm_network_interface" "nic" {
 
   ip_configuration {
     name                          = "internal"
-    public_ip_address_id          = data.azurerm_public_ip.pip-data.id
-    subnet_id                     = data.azurerm_subnet.data-subnet.id
+    public_ip_address_id          = data.azurerm_public_ip.public-ip.id
+    subnet_id                     = data.azurerm_subnet.front-subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-}
-
-data "azurerm_public_ip" "pip-data" {
-  name                = "data_public_ip"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_subnet" "data-subnet" {
-  name                 = "backend"
-  virtual_network_name = var.vnet_name
-  resource_group_name  = var.rg_name
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
@@ -28,6 +29,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location            = var.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
+  admin_password      = "Password@12"
   disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.nic.id,
