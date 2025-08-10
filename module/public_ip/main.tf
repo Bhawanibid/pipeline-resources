@@ -1,4 +1,4 @@
-resource "azurerm_public_ip" "pip" {
+resource "azurerm_public_ip" "public-ip" {
   name                = var.pip_name
   resource_group_name = var.rg_name
   location            = var.location

@@ -35,5 +35,7 @@ module "virtual_machine_front" {
   location = var.location
   nic_name = var.nic_name
   vnet_name = var.vnet_name
-  vm_name = var.vnet_name
+  vm_name = var.vm_name
+  subnet_name = var.subnet_name
+  pip_name = var.pip_name
 }
