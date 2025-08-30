@@ -1,0 +1,11 @@
+name: My pipeline
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  terraform_job:
+    name: My first job
+    runs-on: self-hosted
+    steps:
+    
