@@ -38,7 +38,7 @@ jobs:
   terraform-apply:    
     runs-on: self-hosted
     needs: terraform-init-plan
-    environment: dev
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
