@@ -7,7 +7,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name = "first-rg"
-    storage_account_name = "firststg"
+    storage_account_name = "firststgs"
     container_name = "bhawani-container"
     key = "first.tfstate"
 
