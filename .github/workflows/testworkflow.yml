@@ -1,0 +1,44 @@
+name: CI
+
+# on:
+#   pull_request:
+#     # Sequence of patterns matched against refs/heads
+#     branches:
+#       - main
+#       - 'mona/octocat'
+#       - 'releases/**'
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Terraform Plan
+    runs-on: self-hosted
+    steps:
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          # creds: # optiona
+          # When use client credential
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          
+          # When use client Workload Federation credential
+          # client-id: # optional
+          # tenant-id: # optional
+          # subscription-id: # optional
+          
+                
+          
+          
+          
+  
+
+    
+  
