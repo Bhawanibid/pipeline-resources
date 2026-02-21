@@ -22,17 +22,18 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          # creds: # optiona
+          creds: ${{ secrets.AZURE_CREDENTIAL }}
           # When use client credential
-          client-id: ${{ secrets.CLIENT_ID }}
-          client-secret: ${{ secrets.CLIENT_SECRET }}
-          tenant-id: ${{ secrets.TENANT_ID }}
-          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          # client-id: ${{ secrets.CLIENT_ID }}
+          # client-secret: ${{ secrets.CLIENT_SECRET }}
+          # tenant-id: ${{ secrets.TENANT_ID }}
+          # subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
           
           # When use client Workload Federation credential
-          # client-id: # optional
-          # tenant-id: # optional
-          # subscription-id: # optional
+          # client-id: ${{ secrets.CLIENT_ID }}
+          # tenant-id: ${{ secrets.TENANT_ID }}
+          # subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          
           
                 
           
