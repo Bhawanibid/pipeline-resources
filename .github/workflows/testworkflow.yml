@@ -35,9 +35,14 @@ jobs:
           # subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
       - name: Terraform Init
         id: init
-        run: terraform init -input=false  
+        run: |
+          terraform init -input=false \
+            -backend-config="resource_group_name=${{ secrets.RG_NAME }}" \
+            -backend-config="storage_account_name=${{ secrets.STG_NAME }}" \
+            -backend-config="container_name=${{ secrets.CONTAINER_NAME }}" \
+            -backend-config="key=${{ secrets.STATE_KEY }}"
         working-directory: dev 
-      - name: Terraform Init
+      - name: Terraform Plan
         id: plan
         run: terraform plan -input=false  
         working-directory: dev   
