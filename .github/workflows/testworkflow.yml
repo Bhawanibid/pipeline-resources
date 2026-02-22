@@ -41,11 +41,11 @@ jobs:
             -backend-config="storage_account_name=${{ secrets.STG_NAME }}" \
             -backend-config="container_name=${{ secrets.CONTAINER_NAME }}" \
             -backend-config="key=${{ secrets.STATE_KEY }}"
-        working-directory: ${{ github.workspace }}/dev
+        working-directory: ./dev
       - name: Terraform Plan
         id: plan
         run: terraform plan -input=false  
-        working-directory: ${{ github.workspace }}/dev
+        working-directory: ./dev
 
           
           
