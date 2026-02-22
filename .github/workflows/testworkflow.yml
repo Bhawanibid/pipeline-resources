@@ -33,6 +33,14 @@ jobs:
           # client-id: ${{ secrets.CLIENT_ID }}
           # tenant-id: ${{ secrets.TENANT_ID }}
           # subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false  
+        working-directory: dev 
+      - name: Terraform Init
+        id: plan
+        run: terraform plan -input=false  
+        working-directory: dev   
           
           
                 
